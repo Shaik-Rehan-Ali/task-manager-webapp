@@ -13,6 +13,7 @@ html,
 body,
 #root {
   height: 100%;
+  margin: 0;
 }
 
 body {
@@ -22,6 +23,14 @@ body {
   background: var(--bg);
   color: var(--on-surface);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+}
+
+/* Fullscreen on desktop: remove max-width constraint on wide viewports */
+@media (min-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
 }
 
 :root,
@@ -137,6 +146,7 @@ body {
 
 /* ---------- Layout ---------- */
 .app-shell {
+  width: 100%;
   max-width: 620px;
   margin: 0 auto;
   min-height: 100%;
@@ -144,6 +154,12 @@ body {
   flex-direction: column;
   background: var(--bg);
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    max-width: 100%;
+  }
 }
 
 .page {
@@ -193,9 +209,9 @@ body {
 }
 
 .topbar-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -1198,9 +1214,9 @@ textarea.input {
 }
 
 .brand-logo {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
   object-fit: cover;
 }
 
